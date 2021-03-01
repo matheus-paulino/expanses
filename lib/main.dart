@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './models/transaction.dart';
+
 void main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
@@ -12,7 +14,26 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  final _transcations = [
+    Transaction(
+      id: 't1',
+      title: 'New memory ram',
+      value: 450.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Motherboard',
+      value: 750.00,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Game',
+      value: 50.33,
+      date: DateTime.now(),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
