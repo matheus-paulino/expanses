@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './models/transaction.dart';
 
@@ -34,6 +35,7 @@ class HomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +92,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          transaction.date.toString(),
+                          DateFormat('d MMM y').format(transaction.date),
                           style: TextStyle(
                             color: Colors.grey[600],
                           ),
