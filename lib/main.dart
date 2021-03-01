@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:expanses/components/transaction_form.dart';
-import 'package:expanses/components/transaction_list.dart';
 import 'components/transaction_user.dart';
 
 void main() => runApp(ExpensesApp());
