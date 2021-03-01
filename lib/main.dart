@@ -103,6 +103,31 @@ class HomePage extends StatelessWidget {
               );
             }).toList(),
           ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Title',
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Value',
+                    ),
+                  ),
+                  FlatButton(
+                    child: Text('New Transaction'),
+                    textColor: Colors.lightBlue,
+                    onPressed: () => {},
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
