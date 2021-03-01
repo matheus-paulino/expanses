@@ -21,8 +21,20 @@ class HomePage extends StatelessWidget {
         title: Text('Personal expenses'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text('Initial version'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text('Graphic'),
+            ),
+          ),
+          Card(
+            child: Text(' List transactions'),
+          ),
+        ],
       ),
     );
   }
