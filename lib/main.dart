@@ -12,6 +12,10 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
+        accentColor: Colors.lightBlueAccent,
+      ),
     );
   }
 }
