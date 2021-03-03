@@ -1,8 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-import 'components/transaction_user.dart';
+import 'components/transaction_form.dart';
+import 'components/transaction_list.dart';
+import 'models/transaction.dart';
 
 void main() => runApp(ExpensesApp());
 
@@ -15,7 +16,54 @@ class ExpensesApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _transcations = [
+    Transaction(
+      id: 't1',
+      title: 'New memory ram',
+      value: 450.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Motherboard',
+      value: 750.00,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Game',
+      value: 50.33,
+      date: DateTime.now(),
+    ),
+  ];
+
+  _addTransaction(String title, double value) {
+    final newTransaction = Transaction(
+      id: Random().nextDouble().toString(),
+      title: title,
+      value: value,
+      date: DateTime.now(),
+    );
+
+    setState(() {
+      _transcations.add(newTransaction);
+    });
+  }
+
+  _openTransactionFormModal(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return TransactionForm(null);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -24,7 +72,7 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.add_sharp),
-            onPressed: () {},
+            onPressed: () => _openTransactionFormModal(context),
           )
         ],
         centerTitle: true,
@@ -39,7 +87,7 @@ class HomePage extends StatelessWidget {
                 child: Text('Graphic'),
               ),
             ),
-            TransactionUser(),
+            TransactionList(_transcations),
           ],
         ),
       ),
@@ -48,7 +96,7 @@ class HomePage extends StatelessWidget {
           Icons.add_sharp,
           size: 30.0,
         ),
-        onPressed: () {},
+        onPressed: () => _openTransactionFormModal(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
