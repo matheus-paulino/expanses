@@ -13,10 +13,10 @@ class ExpensesApp extends StatelessWidget {
     return new MaterialApp(
       home: HomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        accentColor: Colors.lightBlueAccent,
-        fontFamily: 'Archivo' 
-      ),
+          scaffoldBackgroundColor: Colors.white,
+          primarySwatch: Colors.lightBlue,
+          accentColor: Colors.lightBlueAccent,
+          fontFamily: 'Archivo'),
     );
   }
 }
@@ -27,25 +27,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _transcations = [
-    Transaction(
-      id: 't1',
-      title: 'New memory ram',
-      value: 450.33,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Motherboard',
-      value: 750.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Game',
-      value: 50.33,
-      date: DateTime.now(),
-    ),
+  final List<Transaction> _transcations = [
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New memory ram',
+    //   value: 450.33,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Motherboard',
+    //   value: 750.00,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't3',
+    //   title: 'New Game',
+    //   value: 50.33,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   _addTransaction(String title, double value) {
