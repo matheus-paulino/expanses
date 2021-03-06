@@ -28,26 +28,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Transaction> _transcations = [
-    Transaction(
-      id: 't1',
-      title: 'New memory ram',
-      value: 450.33,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Motherboard',
-      value: 750.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Game',
-      value: 50.33,
-      date: DateTime.now(),
-    ),
-  ];
+  final List<Transaction> _transcations = [];
 
   List<Transaction> get _recentTransactions {
     return _transcations.where((tr) {
