@@ -63,6 +63,12 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
+  _removeTransaction(String id) {
+    setState(() {
+      _transcations.removeWhere((tr) => tr.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -81,7 +87,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_transcations),
+            TransactionList(_transcations, _removeTransaction),
           ],
         ),
       ),
