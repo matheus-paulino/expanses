@@ -50,6 +50,24 @@ class _TransactionFormState extends State<TransactionForm> {
                 labelText: 'Value',
               ),
             ),
+            Container(
+              height: 80.0,
+              child: Row(
+                children: [
+                  Text('No date defined'),
+                  FlatButton(
+                    textColor: Theme.of(context).primaryColor,
+                    child: Text(
+                      'Select date',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
             FlatButton(
               child: Text('New Transaction'),
               textColor: Theme.of(context).primaryColor,
