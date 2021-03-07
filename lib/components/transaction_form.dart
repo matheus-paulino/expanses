@@ -44,59 +44,66 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: <Widget>[
-            TextField(
-              controller: titleController,
-              onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(
-                labelText: 'Title',
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: 10,
+            right: 10,
+            left: 10,
+            bottom: 10 + MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: titleController,
+                onSubmitted: (_) => _submitForm(),
+                decoration: InputDecoration(
+                  labelText: 'Title',
+                ),
               ),
-            ),
-            TextField(
-              controller: valueController,
-              keyboardType: TextInputType.numberWithOptions(
-                decimal: true,
+              TextField(
+                controller: valueController,
+                keyboardType: TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
+                onSubmitted: (_) => _submitForm(),
+                decoration: InputDecoration(
+                  labelText: 'Value',
+                ),
               ),
-              onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(
-                labelText: 'Value',
-              ),
-            ),
-            Container(
-              height: 80.0,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      _selectedDate == null
-                          ? 'No date defined'
-                          : 'Date selected: ${DateFormat('MMM d, y').format(_selectedDate)}',
-                    ),
-                  ),
-                  FlatButton(
-                    textColor: Theme.of(context).primaryColor,
-                    child: Text(
-                      'Select date',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              Container(
+                height: 80.0,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _selectedDate == null
+                            ? 'No date defined'
+                            : 'Date selected: ${DateFormat('MMM d, y').format(_selectedDate)}',
                       ),
                     ),
-                    onPressed: _showDatePicker,
-                  )
-                ],
+                    FlatButton(
+                      textColor: Theme.of(context).primaryColor,
+                      child: Text(
+                        'Select date',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: _showDatePicker,
+                    )
+                  ],
+                ),
               ),
-            ),
-            FlatButton(
-              child: Text('New Transaction'),
-              textColor: Theme.of(context).primaryColor,
-              onPressed: _submitForm,
-            )
-          ],
+              FlatButton(
+                child: Text('New Transaction'),
+                textColor: Theme.of(context).primaryColor,
+                onPressed: _submitForm,
+              )
+            ],
+          ),
         ),
       ),
     );
