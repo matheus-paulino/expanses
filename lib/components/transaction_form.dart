@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 class TransactionForm extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
 
-  TransactionForm(this.onSubmit);
+  const TransactionForm(this.onSubmit);
 
   @override
   _TransactionFormState createState() => _TransactionFormState();
@@ -86,7 +86,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     ),
                     FlatButton(
                       textColor: Theme.of(context).primaryColor,
-                      child: Text(
+                      child: const Text(
                         'Select date',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 ),
               ),
               FlatButton(
-                child: Text('New Transaction'),
+                child: const Text('New Transaction'),
                 textColor: Theme.of(context).primaryColor,
                 onPressed: _submitForm,
               )

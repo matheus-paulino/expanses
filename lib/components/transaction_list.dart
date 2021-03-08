@@ -7,13 +7,14 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final void Function(String) onRemove;
 
-  TransactionList(
+  const TransactionList(
     this.transactions,
     this.onRemove,
   );
 
   @override
   Widget build(BuildContext context) {
+    print('build() _transactionlist');
     return transactions.isEmpty
         ? Column(
             children: [
@@ -27,7 +28,7 @@ class TransactionList extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Text(
+              const Text(
                 'Your list transactions is empty...',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
@@ -42,7 +43,7 @@ class TransactionList extends StatelessWidget {
               final transaction = transactions[index];
               return Card(
                 elevation: 3.0,
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 5.0,
                 ),
@@ -55,7 +56,7 @@ class TransactionList extends StatelessWidget {
                       child: FittedBox(
                         child: Text(
                           '\$ ${transaction.value.toStringAsFixed(2)}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
@@ -68,7 +69,7 @@ class TransactionList extends StatelessWidget {
                     DateFormat('MMM d, y').format(transaction.date),
                   ),
                   trailing: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete_rounded,
                       size: 25.0,
                     ),
