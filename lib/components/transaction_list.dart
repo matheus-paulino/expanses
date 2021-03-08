@@ -1,6 +1,5 @@
+import 'package:expanses/components/transaction_item.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
@@ -41,42 +40,9 @@ class TransactionList extends StatelessWidget {
             itemCount: transactions.length,
             itemBuilder: (ctx, index) {
               final transaction = transactions[index];
-              return Card(
-                elevation: 3.0,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 5.0,
-                ),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    radius: 30.0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FittedBox(
-                        child: Text(
-                          '\$ ${transaction.value.toStringAsFixed(2)}',
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  title: Text(transaction.title),
-                  subtitle: Text(
-                    DateFormat('MMM d, y').format(transaction.date),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(
-                      Icons.delete_rounded,
-                      size: 25.0,
-                    ),
-                    onPressed: () => onRemove(transaction.id),
-                    color: Theme.of(context).errorColor,
-                  ),
-                ),
+              return TransactionItem(
+                transaction: transaction,
+                onRemove: onRemove,
               );
             },
           );
