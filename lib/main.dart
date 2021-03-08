@@ -76,7 +76,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('build() _initalPage');
     final appBar = AppBar(
       title: Text(
         'Personal expenses',

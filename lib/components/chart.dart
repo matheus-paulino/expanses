@@ -7,9 +7,7 @@ import 'package:expanses/models/transaction.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransaction;
 
-  Chart(this.recentTransaction) {
-    print('constructor Chart');
-  }
+  const Chart(this.recentTransaction);
 
   List<Map<String, Object>> get groupedTransactions {
     return List.generate(7, (index) {
@@ -43,7 +41,6 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('build() _chart');
     return Card(
       elevation: 6.0,
       margin: const EdgeInsets.all(20.0),
